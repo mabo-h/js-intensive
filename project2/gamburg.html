@@ -1,0 +1,72 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/gambur.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="#" id="gamburg-form">
+        <fieldset id="gamburg-field">
+            <h2 class="gamburg-head">Соберите свой гамбургер</h2>
+            <fieldset class="gamburg-fieldset">
+                <h3>Выберите размер булочки</h3>
+                <input type="radio" name="size" id="big-bread" value="big" class="gamburger" data-price="100"
+                    data-calories="40" checked>
+                <label for="big-bread">Большой (100 рублей, 40 калорий)</label>
+                <br>
+                <input type="radio" name="size" id="small-bread" value="small" class="gamburger" data-price="50"
+                    data-calories="20">
+                <label for="big-bread">Маленький (50 рублей, 20 калорий)</label>
+            </fieldset>
+
+            <fieldset class="gamburg-fieldset">
+                <h3>Выберите начинку для бургера: </h3>
+                <input type="radio" name="add" id="cheese" value="cheese" class="gamburger" data-price="10"
+                    data-calories="20" checked>
+                <label for="cheese">С сыром (+10 рублей, +20 калорий)</label>
+                <br>
+                <input type="radio" name="add" id="salad" value="salad" class="gamburger" data-price="20"
+                    data-calories="5">
+                <label for="salad">С салатом (+20 рублей, +5 калорий)</label>
+                <br>
+                <input type="radio" name="add" id="potato" value="potato" class="gamburger" data-price="15"
+                    data-calories="10">
+                <label for="potato">С картофелем (+15 рублей, +10 калорий)</label>
+            </fieldset>
+
+            <fieldset class="gamburg-fieldset">
+                <h3>Выберите добавки</h3>
+                <input type="checkbox" name="toping" id="space" value="herb" class="gamburger" data-price="15"
+                    data-calories="0">
+                <label for="big-bread">Посыпать приправой (15 рублей, 0 калорий)</label>
+                <br>
+                <input type="checkbox" name="toping" id="sauce" value="maionez" class="gamburger" data-price="20"
+                    data-calories="5">
+                <label for="big-bread">Полить майонезом (20 рублей, 5 калорий)</label>
+            </fieldset>
+
+            <div id="check">Собрать бургер</div>
+
+            <p id="result">Итоговая стоимость: <span id="price">0</span> <br>
+                Кол-во калорий: <span id="calories">0</span></p>
+        </fieldset>
+
+    </form>
+    <script src="js/gam-script.js"></script>
+    <script>
+        window.onload = () => {
+            document.getElementById("check").addEventListener('click', () => {
+                let burger = new Burger('size', 'add', 'toping');
+                console.log(burger);
+                burger.showSum("#price", "#calories");
+            });
+
+        }
+    </script>
+</body>
+
+</html>
