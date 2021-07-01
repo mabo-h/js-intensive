@@ -1,0 +1,37 @@
+.btn {
+    font-size: 18px;
+    padding: 10px;
+    margin: 15px 0;
+}
+.btn-submit {
+    color: rgb(167, 238, 238);
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: rgb(62, 32, 89);
+    border-radius: 25px;
+    margin-top: 20px;
+    width: 150px;
+    border: none;
+    text-transform: uppercase;
+}
+
+input {
+    width: 200px;
+    padding: 5px 10px;
+    margin: 10px 0;
+}
+input:focus {
+    outline: none;
+}
+
+.message_err {
+    color: red;
+    margin: 10px 0;
+}
+.invalid {
+    border: 2px solid red;
+}
+.valid {
+    border: 2px solid green;
+}
