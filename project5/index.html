@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Интернет-магазин</title>
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <div class="center menu">
+                <p class="logo">Практическое задание 5</p>
+                <div class="menu">
+                    <form action="#" class="search-form" @submit.prevent="filter">
+                        <input type="text" class="search-field" v-model="userSearch">
+                        <button type="submit" class="btn-search">
+                            <i class="fas fa-search fa-2x"></i>
+                        </button>
+                    </form>
+                    <button class="btn-cart" type="button" @click="showCart = !showCart">Корзина</button>
+                </div>
+            </div>
+        </header>
+
+        <main class="center">
+
+            <div class="products">
+                <div class="product-item" v-for="product of filtered" :key="product.id_product">
+                    <img :src="imgProduct" alt="Some img">
+                    <div class="desc">
+                        <h3>{{product.product_name}}</h3>
+                        <p>{{product.price}}</p>
+                        <button class="buy-btn" @click="addProduct(product)">Купить</button>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        <hr>
+        <div class="cart-block center" v-show="showCart">
+            <p v-if="!cartItems.length">Нет данных</p>
+            <div class="cart-item" v-for="item of cartItems" :key="item.id_product">
+                <div class="product-bio">
+                    <img class="cart_img" :src="imgCart" alt="Some img">
+                    <div class="product-desc">
+                        <div class="product-title">{{ item.product_name }}</div>
+                        <div class="product-quantity">Quantity: {{ item.quantity }}</div>
+                        <div class="product-single-price">$ {{ item.price }} each</div>
+                    </div>
+                </div>
+                <div class="right-block">
+                    <div class="product-price">{{item.quantity*item.price}}</div>
+                    <button class="del-btn" @click="remove(item)">&times;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/b72f419947.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
