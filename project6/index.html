@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Интернет-магазин</title>
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <div class="center menu">
+                <p class="logo">Практическое задание 6</p>
+                <div class="menu">
+                    <search-input></search-input>
+                    <button class="btn-cart" type="button" @click="showCart = !showCart">Корзина</button>
+
+                </div>
+            </div>
+        </header>
+
+        <main class="center">
+            <products :products="filtered" :img="imgProduct" @add-product="addProduct"></products>
+
+        </main>
+        <hr>
+        <cart :cart-items="cartItems" :img="imgCart" :visibility="showCart" @remove="remove"></cart>
+    </div>
+    <script src="https://kit.fontawesome.com/b72f419947.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/CartComp.js"></script>
+    <script src="js/ProductComp.js"></script>
+    <script src="js/SearchComp.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
